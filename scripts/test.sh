@@ -1,8 +1,7 @@
 #!/bin/bash
 
-NAME=example-cpp
-PROJECT_DIR=$(pwd)
-BUILD_DIR=${PROJECT_DIR}/build
+set -x 
 
-set -x
-${BUILD_DIR}/${NAME}
+jarfile=$(find target -name "example-java*.jar")
+
+java -cp ${jarfile} com.rsmaxwell.example.Hello
