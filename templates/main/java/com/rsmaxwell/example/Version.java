@@ -4,31 +4,31 @@ public class Version {
 
 	// version function
 	public static String version() {
-		return "<VERSION>";
+		return "$VERSION";
 	}
 
 	// buildDate function
 	public static String buildId() {
-		return "<BUILD_ID>";
+		return "$BUILD_ID";
 	}
 
 	// buildDate function
 	public static String buildDate() {
-		return "<BUILD_DATE>";
+		return "$TIMESTAMP";
 	}
 
 	// gitCommit function
 	public static String gitCommit() {
-		return "<GIT_COMMIT>";
+		return "$GIT_COMMIT";
 	}
 
 	// gitBranch function
 	public static String gitBranch() {
-		return "<GIT_BRANCH>";
+		return "$GIT_BRANCH";
 	}
 
 	// gitURL function
 	public static String gitURL() {
-		return "<GIT_URL>";
+		return "$GIT_URL";
 	}
 }

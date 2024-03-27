@@ -1,1 +1,7 @@
+target/
+dist/
+downloads/
+package/
+test/
+src/main/java/com.rsmaxwell.example/version.java
 /target/

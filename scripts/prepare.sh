@@ -1,49 +1,38 @@
-#!/bin/bash
+#!/bin/sh
 
-set -x
+BASEDIR=$(dirname "$0")
+SCRIPT_DIR=$(cd $(dirname $BASEDIR) && pwd)
 
-#*****************************************************************
-# Clean previously built jars
-#*****************************************************************
-rm -rf ./target
-result=$?
-if [ ! ${result} -eq 0 ]; then
-    echo "Error: $0[${LINENO}]" 
-    echo "result = ${result}"
-    exit 1
-fi
-
-
-if [ -n "${BUILD_ID}" ]; then
-
-    #*****************************************************************
-    # Replace tags in the source for the Version class
-    #*****************************************************************
+if [ -z "${BUILD_ID}" ]; then
+    BUILD_ID="(none)"
+    VERSION="SNAPSHOT"
+else
     VERSION="0.0.$((${BUILD_ID}))"
-    TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
-
-    find . -name "Version.java" | while read versionfile; do
-
-        echo "Replacing tags in ${versionfile}"
-
-        sed -i "s@<VERSION>@${VERSION}@g"            ${versionfile}    
-        sed -i "s@<BUILD_ID>@${BUILD_ID}@g"          ${versionfile}
-        sed -i "s@<BUILD_DATE>@${TIMESTAMP}@g"       ${versionfile}
-        sed -i "s@<GIT_COMMIT>@${GIT_COMMIT}@g"      ${versionfile}
-        sed -i "s@<GIT_BRANCH>@${GIT_BRANCH}@g"      ${versionfile}
-        sed -i "s@<GIT_URL>@${GIT_URL}@g"            ${versionfile}
-    done
-
-    #*****************************************************************
-    # Update the version in the pom file
-    #*****************************************************************
-    mvn --batch-mode versions:set -DnewVersion=${VERSION}
-    result=$?
-    if [ ! ${result} -eq 0 ]; then
-        echo "Error: $0[${LINENO}]"
-        echo "result: ${result}"
-        exit 1
-    fi
-
 fi
+
+TIMESTAMP="$(date '+%Y-%m-%d %H:%M:%S')"
+GIT_COMMIT="${GIT_COMMIT:-(none)}"
+GIT_BRANCH="${GIT_BRANCH:-(none)}"
+GIT_URL="${GIT_URL:-(none)}"
+
+export BUILD_ID
+export VERSION
+export TIMESTAMP
+export GIT_COMMIT
+export GIT_BRANCH
+export GIT_URL
+
+tags='$VERSION,$BUILD_ID,$TIMESTAMP,$GIT_COMMIT,$GIT_BRANCH,$GIT_URL'
+
+PROJECT_DIR=$(dirname $SCRIPT_DIR)
+SOURCE_DIR=${PROJECT_DIR}/src
+TEMPLATES_DIR=${PROJECT_DIR}/templates
+
+cd ${TEMPLATES_DIR}
+
+find . -type f | while read filename; do
+    echo "Replacing tags in ${filename}"
+    envsubst "${tags}" < ${filename} > ${SOURCE_DIR}/${filename}
+done
+
 
