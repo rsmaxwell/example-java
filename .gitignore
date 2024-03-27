@@ -3,5 +3,5 @@ dist/
 downloads/
 package/
 test/
-src/main/java/com/rsmaxwell/example/version.java
+src/main/java/com/rsmaxwell/example/Version.java
 /target/
