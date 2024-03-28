@@ -1,7 +1,7 @@
 #!/bin/sh
 
 BASEDIR=$(dirname "$0")
-SCRIPT_DIR=$(cd $(dirname $BASEDIR) && pwd)
+SCRIPT_DIR=$(cd $BASEDIR && pwd)
 
 if [ -z "${BUILD_ID}" ]; then
     BUILD_ID="(none)"
