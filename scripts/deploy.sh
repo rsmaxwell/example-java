@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 
 BASEDIR=$(dirname "$0")
 SCRIPT_DIR=$(cd $BASEDIR && pwd)

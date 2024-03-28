@@ -1,7 +1,5 @@
 #!/bin/sh
 
-BASEDIR=$(dirname "$0")
-SCRIPT_DIR=$(cd $BASEDIR && pwd)
 
 if [ -z "${BUILD_ID}" ]; then
     BUILD_ID="(none)"
@@ -24,6 +22,8 @@ export GIT_URL
 
 tags='$VERSION,$BUILD_ID,$TIMESTAMP,$GIT_COMMIT,$GIT_BRANCH,$GIT_URL'
 
+BASEDIR=$(dirname "$0")
+SCRIPT_DIR=$(cd $BASEDIR && pwd)
 PROJECT_DIR=$(dirname $SCRIPT_DIR)
 SOURCE_DIR=${PROJECT_DIR}/src
 TEMPLATES_DIR=${PROJECT_DIR}/templates
@@ -34,5 +34,3 @@ find . -type f | while read filename; do
     echo "Replacing tags in ${filename}"
     envsubst "${tags}" < ${filename} > ${SOURCE_DIR}/${filename}
 done
-
-
