@@ -25,11 +25,11 @@ esac
 
 if [ -z "${BUILD_ID}" ]; then
     BUILD_ID="(none)"
-    VERSION="0.0-SNAPSHOT"
+    VERSION="0.0.1-SNAPSHOT"
     REPOSITORY=snapshots
     REPOSITORYID=snapshots
 else
-    VERSION="0.0.$((${BUILD_ID}))"
+    VERSION="0.0.1.$((${BUILD_ID}))"
     REPOSITORY=releases
     REPOSITORYID=releases
 fi
@@ -81,6 +81,6 @@ tags='$VERSION,$BUILD_ID,$TIMESTAMP,$GIT_COMMIT,$GIT_BRANCH,$GIT_URL'
 cd ${TEMPLATES_DIR}
 
 find . -type f | while read filename; do
-    echo "Replacing tags in ${filename}"
+    echo "Writing ${filename}"
     envsubst "${tags}" < ${filename} > ${SOURCE_DIR}/${filename}
 done
