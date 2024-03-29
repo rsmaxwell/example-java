@@ -84,3 +84,4 @@ find . -type f | while read filename; do
     echo "Writing ${filename}"
     envsubst "${tags}" < ${filename} > ${SOURCE_DIR}/${filename}
 done
+
