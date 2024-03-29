@@ -39,9 +39,9 @@ BASEDIR=$(dirname "$0")
 SCRIPT_DIR=$(cd $BASEDIR && pwd)
 PROJECT_DIR=$(dirname $SCRIPT_DIR)
 SOURCE_DIR=${PROJECT_DIR}/src
-BUILD_DIR=${PROJECT_DIR}/build
+BUILD_DIR=${PROJECT_DIR}/target
 TEMPLATES_DIR=${PROJECT_DIR}/templates
-PROJECT=example-c
+PROJECT=example-java
 
 mkdir -p ${BUILD_DIR}
 cd ${BUILD_DIR}
@@ -62,7 +62,6 @@ cat buildinfo
 
 
 
-
 TIMESTAMP="$(date '+%Y-%m-%d %H:%M:%S')"
 GIT_COMMIT="${GIT_COMMIT:-(none)}"
 GIT_BRANCH="${GIT_BRANCH:-(none)}"
@@ -77,11 +76,7 @@ export GIT_URL
 
 tags='$VERSION,$BUILD_ID,$TIMESTAMP,$GIT_COMMIT,$GIT_BRANCH,$GIT_URL'
 
-BASEDIR=$(dirname "$0")
-SCRIPT_DIR=$(cd $BASEDIR && pwd)
-PROJECT_DIR=$(dirname $SCRIPT_DIR)
-SOURCE_DIR=${PROJECT_DIR}/src
-TEMPLATES_DIR=${PROJECT_DIR}/templates
+
 
 cd ${TEMPLATES_DIR}
 
