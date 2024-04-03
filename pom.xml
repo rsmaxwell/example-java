@@ -8,7 +8,7 @@
 	</properties>
 
 	<groupId>com.rsmaxwell.example</groupId>
-	<artifactId>example-java</artifactId>
+	<artifactId>example-maven</artifactId>
 	<version>${project.version}</version>
 
 	<build>
