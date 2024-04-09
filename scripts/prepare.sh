@@ -41,7 +41,7 @@ PROJECT_DIR=$(dirname $SCRIPT_DIR)
 SOURCE_DIR=${PROJECT_DIR}/src
 BUILD_DIR=${PROJECT_DIR}/target
 TEMPLATES_DIR=${PROJECT_DIR}/templates
-PROJECT=example-java
+PROJECT=example-maven
 
 mkdir -p ${BUILD_DIR}
 cd ${BUILD_DIR}
