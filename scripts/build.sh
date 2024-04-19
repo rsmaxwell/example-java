@@ -10,4 +10,6 @@ BUILD_DIR=${PROJECT_DIR}/target
 
 cd ${PROJECT_DIR}
 
-mvn --batch-mode --errors compile -Dproject.version=${VERSION}
+mvn --batch-mode --errors compile \
+    -Dproject.version=${VERSION} \
+    -Dproject.repository.url=${REPOSITORY_URL}

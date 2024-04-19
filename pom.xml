@@ -5,6 +5,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.version>0.0.1-SNAPSHOT</project.version>
+		<project.repository.url>https://example.com/archiva/repository</project.repository.url>
 	</properties>
 
 	<groupId>com.rsmaxwell.example</groupId>
@@ -27,14 +28,14 @@
 	<repositories>
 		<repository>
 			<id>snapshots</id>
-			<url>https://pluto.rsmaxwell.co.uk/archiva/repository/snapshots</url>
+			<url>${project.repository.url}</url>
 			<snapshots>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
 		</repository>
 		<repository>
 			<id>releases</id>
-			<url>https://pluto.rsmaxwell.co.uk/archiva/repository/releases</url>
+			<url>${project.repository.url}</url>
 			<releases>
 				<updatePolicy>always</updatePolicy>
 			</releases>
@@ -44,11 +45,11 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>snapshots</id>
-			<url>https://pluto.rsmaxwell.co.uk/archiva/repository/snapshots</url>
+			<url>${project.repository.url}</url>
 		</snapshotRepository>
 		<repository>
 			<id>releases</id>
-			<url>https://pluto.rsmaxwell.co.uk/archiva/repository/releases</url>
+			<url>${project.repository.url}</url>
 		</repository>
 	</distributionManagement>
 
