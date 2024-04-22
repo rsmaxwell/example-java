@@ -5,4 +5,3 @@ package/
 test/
 /target/
 src/main/java/com/rsmaxwell/example/Version.java
-pom.xml
