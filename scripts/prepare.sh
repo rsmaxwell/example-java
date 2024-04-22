@@ -75,16 +75,15 @@ export GIT_URL
 export FAMILY
 export ARCHITECTURE
 
-
 cd ${TEMPLATES_DIR}
 
 tags='$FAMILY,$ARCHITECTURE,$PROJECT,$REPOSITORY,$REPOSITORYID,$VERSION,$BUILD_ID,$TIMESTAMP,$GIT_COMMIT,$GIT_BRANCH,$GIT_URL'
 
 find . -type f | while read filename; do
-    echo "Writing ${filename}"
     file=${SOURCE_DIR}/${filename}
-    dir=${directory ${file}}
+    dir=$(directory ${file})
     mkdir -p ${dir}
+    echo "Writing ${file}"
     envsubst "${tags}" < ${filename} > ${file}
 done
 
