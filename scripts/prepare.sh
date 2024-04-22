@@ -45,47 +45,16 @@ SOURCE_DIR=${PROJECT_DIR}/src
 BUILD_DIR=${PROJECT_DIR}/target
 TEMPLATES_DIR=${PROJECT_DIR}/templates
 
-
-
-
-
-
-PROJECT=example-c
+PROJECT=example-maven
 GROUPID=com.rsmaxwell.example
 ARTIFACTID=${PROJECT}_${FAMILY}_${ARCHITECTURE}
 PACKAGING=zip
 ZIPFILE=${ARTIFACTID}_${VERSION}.${PACKAGING}
 
-
-
 TIMESTAMP="$(date '+%Y-%m-%d %H:%M:%S')"
 GIT_COMMIT="${GIT_COMMIT:-(none)}"
 GIT_BRANCH="${GIT_BRANCH:-(none)}"
 GIT_URL="${GIT_URL:-(none)}"
-
-export PROJECT
-export REPOSITORY
-export REPOSITORYID
-export BUILD_ID
-export VERSION
-export TIMESTAMP
-export GIT_COMMIT
-export GIT_BRANCH
-export GIT_URL
-export FAMILY
-export ARCHITECTURE
-
-cd ${TEMPLATES_DIR}
-
-tags='$FAMILY,$ARCHITECTURE,$PROJECT,$REPOSITORY,$REPOSITORYID,$VERSION,$BUILD_ID,$TIMESTAMP,$GIT_COMMIT,$GIT_BRANCH,$GIT_URL'
-
-find . -type f | while read filename; do
-    file=${SOURCE_DIR}/${filename}
-    dir=$(directory ${file})
-    mkdir -p ${dir}
-    echo "Writing ${file}"
-    envsubst "${tags}" < ${filename} > ${file}
-done
 
 
 
