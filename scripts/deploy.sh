@@ -27,10 +27,7 @@ REPOSITORY_URL="${MAVEN_REPOSITORY_BASE_URL}/${REPOSITORY}"
 
 
 mvn --batch-mode --errors deploy:deploy-file \
-	-DgroupId=${GROUPID} \
-	-DartifactId=${ARTIFACTID} \
-	-Dversion=${VERSION} \
-	-Dpackaging=${PACKAGING} \
+	-Dmy.version=${VERSION} \
 	-Dfile=${DIST_DIR}/${ZIPFILE} \
-	-DrepositoryId=${REPOSITORYID} \
-	-Durl=${REPOSITORY_URL}
+	-Dmy.repositoryId=${REPOSITORYID} \
+	-Dmy.repository.url=${REPOSITORY_URL}

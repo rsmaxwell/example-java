@@ -4,6 +4,7 @@
 	<groupId>com.rsmaxwell.example</groupId>
 	<artifactId>example-maven</artifactId>
 	<version>${my.version}</version>
+	<packaging>zip</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
