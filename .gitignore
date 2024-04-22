@@ -3,5 +3,6 @@ dist/
 downloads/
 package/
 test/
-src/main/java/com/rsmaxwell/example/Version.java
 /target/
+src/main/java/com/rsmaxwell/example/Version.java
+pom.xml
