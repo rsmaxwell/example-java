@@ -10,6 +10,7 @@
 
 	<groupId>com.rsmaxwell.example</groupId>
 	<artifactId>example-maven</artifactId>
+	<version>${version}</version>
 
 	<build>
 		<plugins>
