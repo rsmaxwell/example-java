@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>com.rsmaxwell.example</groupId>
+	<artifactId>example-maven</artifactId>
+	<version>${my.version}</version>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<version>0.0.1-SNAPSHOT</version>
-		<repository.url>https://example.com/archiva/repository</repository.url>
+		<my.version>0.0.1-SNAPSHOT</my.version>
+		<my.repository.url>https://example.com/archiva/repository</my.repository.url>
 	</properties>
-
-	<groupId>com.rsmaxwell.example</groupId>
-	<artifactId>example-maven</artifactId>
-	<version>${version}</version>
 
 	<build>
 		<plugins>
@@ -28,14 +28,14 @@
 	<repositories>
 		<repository>
 			<id>snapshots</id>
-			<url>${repository.url}</url>
+			<url>${my.repository.url}</url>
 			<snapshots>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
 		</repository>
 		<repository>
 			<id>releases</id>
-			<url>${repository.url}</url>
+			<url>${my.repository.url}</url>
 			<releases>
 				<updatePolicy>always</updatePolicy>
 			</releases>
@@ -45,11 +45,11 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>snapshots</id>
-			<url>${repository.url}</url>
+			<url>${my.repository.url}</url>
 		</snapshotRepository>
 		<repository>
 			<id>releases</id>
-			<url>${repository.url}</url>
+			<url>${my.repository.url}</url>
 		</repository>
 	</distributionManagement>
 
