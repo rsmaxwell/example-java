@@ -3,14 +3,14 @@
 
 	<groupId>com.rsmaxwell.example</groupId>
 	<artifactId>example-maven</artifactId>
-	<version>${my.version}</version>
+	<version>${reversion}</version>
 	<packaging>zip</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<my.version>0.0.1-SNAPSHOT</my.version>
-		<my.repository.url>https://example.com/archiva/repository</my.repository.url>
+		<reversion>0.0.1-SNAPSHOT</reversion>
+		<repository.url>https://example.com/archiva/repository</repository.url>
 	</properties>
 
 	<build>
@@ -29,14 +29,14 @@
 	<repositories>
 		<repository>
 			<id>snapshots</id>
-			<url>${my.repository.url}</url>
+			<url>${repository.url}</url>
 			<snapshots>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
 		</repository>
 		<repository>
 			<id>releases</id>
-			<url>${my.repository.url}</url>
+			<url>${repository.url}</url>
 			<releases>
 				<updatePolicy>always</updatePolicy>
 			</releases>
@@ -46,11 +46,11 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>snapshots</id>
-			<url>${my.repository.url}</url>
+			<url>${repository.url}</url>
 		</snapshotRepository>
 		<repository>
 			<id>releases</id>
-			<url>${my.repository.url}</url>
+			<url>${repository.url}</url>
 		</repository>
 	</distributionManagement>
 
